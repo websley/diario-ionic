@@ -15,7 +15,16 @@
   </ion-header>
 
   <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <form #f="ngForm" (ngSubmit)="cadastrarCategoria(f)" novalidate>
+      <ion-label position="floating">Nome da nova categoria</ion-label>
+      <ion-input type="text" name="name" ngModel #name="ngModel"></ion-input>
+
+      <ion-label position="floating">Valor</ion-label>
+      <ion-input type="number" name="valor" ngModel #valor="ngModel"></ion-input>
+
+        <ion-button type="submit">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </form>
+    </div>
 </ion-content>

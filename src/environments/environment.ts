@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  localStorageName: 'diario',
+  firebaseConfig: {
+    apiKey: "AIzaSyDGpDNpIPrrjMKkJuvcnm1OFNLAzdPazqE",
+    authDomain: "diario-e3d34.firebaseapp.com",
+    projectId: "diario-e3d34",
+    storageBucket: "diario-e3d34.appspot.com",
+    messagingSenderId: "406786799769",
+    appId: "1:406786799769:web:9cdb880c1c6ac10c206008",
+    measurementId: "G-9XGBZ6PEMV"
+  },
 };
 
 /*

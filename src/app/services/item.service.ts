@@ -14,8 +14,10 @@ export class ItemService {
     return this.fireStore.collection(name).add(category);
   }
 
-  getCaregories(){
-    return this.fireStore.collection('categories').doc('ativos').valueChanges();
+  addCategory(category: string){
+    console.log(category);
+    let data: any = {name: category.toLowerCase()};
+    return this.fireStore.collection('categorias').add(data);
   }
 
   getCategorias(){

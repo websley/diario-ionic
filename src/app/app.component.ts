@@ -18,6 +18,7 @@ export class AppComponent {
 
   getCategories(){
     this.item.getCategorias().subscribe( res => {
+      this.appPages = [];
       res.forEach((iten: any) => {
         this.appPages.push({title: this.firstLetterUperCase(iten.name), url: `/folder/${iten.name}`, icon: 'add'});
       });

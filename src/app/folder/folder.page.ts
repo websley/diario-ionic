@@ -10,6 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class FolderPage implements OnInit {
   public folder: string;
+  private name_item: string = '';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -21,9 +22,18 @@ export class FolderPage implements OnInit {
   }
 
   cadastrarCategoria(f: NgForm){
-    console.log(f.value);
-    this.item.createCategory(f.value).then( () => {
-      console.log('Item cadastrado')
+    console.log(f.value.name);
+    this.name_item = f.value.name;
+
+    this.item.createCategory(f.value).then( (res) => {
+
+      this.item.addCategory(this.name_item).then( (res) => {
+
+        console.log('Item cadastrado');
+      }).catch((error) => {
+        console.log('Erro ao cadastrar o item');
+      }).finally( () => {});
+
     })
     .catch( (error) => {
       console.error(error);

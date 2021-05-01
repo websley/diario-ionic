@@ -40,5 +40,15 @@ export class FolderPage implements OnInit {
     })
   }
 
+  addRegisterCategory(f: NgForm, category){
+    let data: any = f.value;
+    data['date'] = new Date();
+    this.item.addRegisterCategory(data, category).then( res => {
+
+    }).catch( (error) => {
+      console.error(error);
+    })
+  }
+
 
 }

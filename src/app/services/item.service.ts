@@ -8,10 +8,11 @@ export class ItemService {
 
   constructor(private fireStore: AngularFirestore) { }
 
-  createCategory(category: any){
-    let name: string = category.name.toLowerCase();
-    delete category.name;
-    return this.fireStore.collection(name).add(category);
+  createCategory(data: any){
+    let name: string = data.name.toLowerCase();
+    delete data.name;
+    data['date'] = new Date();
+    return this.fireStore.collection(name).add(data);
   }
 
   addCategory(category: string){
@@ -22,5 +23,10 @@ export class ItemService {
 
   getCategorias(){
     return this.fireStore.collection('categorias').valueChanges();
+  }
+
+  addRegisterCategory(data: any, category){
+    console.log(data, category);
+    return this.fireStore.collection(category).add(data);
   }
 }
